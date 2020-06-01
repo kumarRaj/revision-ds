@@ -1,6 +1,4 @@
-grid = [[1,1], 
-        [1,1], 
-        [1,1]]
+grid = (3,2)
 
 class Robot:
     def findPath(self, currentPosition, grid):
@@ -24,14 +22,14 @@ class Robot:
     def isGridEnd(self, currentPosition, grid):
         if not grid:
             return True
-        x = len(grid) - 1
-        y = len(grid[0]) - 1
+        x = grid[0] - 1
+        y = grid[1] - 1
         return currentPosition == (x,y)
 
     def canMoveRight(self, currentPosition, grid):
-        return currentPosition[1] < len(grid[0]) - 1
+        return currentPosition[1] < grid[1] - 1
     def canMoveDown(self, currentPosition, grid):
-        return currentPosition[0] < len(grid) - 1
+        return currentPosition[0] < grid[0] - 1
     def moveRight(self, currentPosition):
         return (currentPosition[0], currentPosition[1] + 1)
     def moveDown(self, currentPosition):
